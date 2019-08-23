@@ -1,0 +1,1 @@
+/home/yunchen/zksnark_project/ZoKrates/target/release/libzokrates_parser.rlib: /home/yunchen/zksnark_project/ZoKrates/zokrates_parser/src/lib.rs /home/yunchen/zksnark_project/ZoKrates/zokrates_parser/src/zokrates.pest

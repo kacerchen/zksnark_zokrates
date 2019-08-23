@@ -1,0 +1,11 @@
+import "hashes/sha256/512bitPacked.code" as sha256packed
+
+def main(private field a, private field b, private field amount, private field age) -> (field):
+    field isValidAmount = if a >= amount then 1 else 0 fi
+    field isValidAge = if b >= age then 1 else 0 fi
+    isValidAmount == 1
+    isValidAge == 1
+    h = sha256packed([a, b, isValidAmount, isValidAge])
+    h[0] == 306480070503966023686889231546533245871
+    h[1] == 179062426706532515364093333181544361138
+    return 1

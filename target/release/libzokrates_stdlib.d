@@ -1,0 +1,1 @@
+/home/yunchen/zksnark_project/ZoKrates/target/release/libzokrates_stdlib.rlib: /home/yunchen/zksnark_project/ZoKrates/zokrates_stdlib/build.rs /home/yunchen/zksnark_project/ZoKrates/zokrates_stdlib/src/lib.rs /home/yunchen/zksnark_project/ZoKrates/zokrates_stdlib/tests/test_template

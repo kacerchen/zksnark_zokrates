@@ -1,0 +1,11 @@
+import "hashes/sha256/512bitPacked.code" as sha256packed
+
+def gethash(private field a, private field b, private field c, private field d) -> (field[2]):
+    h = sha256packed([a, b, c, d])
+    return h
+
+def main(private field a, private field b, private field amount, private field age) -> (field[2]):
+    field isValidAmount = if a >= amount then 1 else 0 fi
+    field isValidAge = if b >= age then 1 else 0 fi
+    h = gethash(a, b, isValidAmount, isValidAge)
+    return h
