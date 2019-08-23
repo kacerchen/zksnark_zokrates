@@ -3,10 +3,6 @@
 
 # Zero-Knowledge-Proof Use Cases By ZoKrates
 
-[![Join the chat at https://gitter.im/ZoKrates/Lobby](https://badges.gitter.im/ZoKrates/Lobby.svg)](https://gitter.im/ZoKrates/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![CircleCI master](https://img.shields.io/circleci/project/github/Zokrates/ZoKrates/master.svg?label=master)](https://circleci.com/gh/Zokrates/ZoKrates/tree/master)
-[![CircleCI develop](https://img.shields.io/circleci/project/github/Zokrates/ZoKrates/develop.svg?label=develop)](https://circleci.com/gh/Zokrates/ZoKrates/tree/develop)
-
 ZoKrates is a toolbox for zkSNARKs on Ethereum. We use this toolbox to implement differen zk proof use cases
 
 _The toolbox is a proof-of-concept implementation. It has not been tested for production._
