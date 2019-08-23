@@ -1,35 +1,51 @@
 
-<img src="http://www.redaktion.tu-berlin.de/fileadmin/fg308/icons/projekte/logos/ZoKrates_logo.svg" width="100%" height="180">
+<img src="https://cdn-images-1.medium.com/fit/t/1600/480/1*mkZDyso7UvVyutxpP5ugDA.png" width="100%">
 
-# ZoKrates
+# Zero-Knowledge-Proof Use Cases By ZoKrates
 
 [![Join the chat at https://gitter.im/ZoKrates/Lobby](https://badges.gitter.im/ZoKrates/Lobby.svg)](https://gitter.im/ZoKrates/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![CircleCI master](https://img.shields.io/circleci/project/github/Zokrates/ZoKrates/master.svg?label=master)](https://circleci.com/gh/Zokrates/ZoKrates/tree/master)
 [![CircleCI develop](https://img.shields.io/circleci/project/github/Zokrates/ZoKrates/develop.svg?label=develop)](https://circleci.com/gh/Zokrates/ZoKrates/tree/develop)
 
-ZoKrates is a toolbox for zkSNARKs on Ethereum.
+ZoKrates is a toolbox for zkSNARKs on Ethereum. We use this toolbox to implement differen zk proof use cases
 
-_This is a proof-of-concept implementation. It has not been tested for production._
+_The toolbox is a proof-of-concept implementation. It has not been tested for production._
 
 ## Getting Started
 
-```bash
-curl -LSfs get.zokrat.es | sh
+```
+cd target/release
 ```
 
-Have a look at the [documentation](https://zokrates.github.io/) for more information about using ZoKrates.  
-A getting started tutorial can be found [here](https://zokrates.github.io/sha256example.html).
+There are two use cases: user login and money transfer implementation in 'release' folder.
 
-## Getting Help
+If you want to play with zokrates toolbox, please get started from [Here](https://zokrates.github.io/gettingstarted.html). 
+Have a look at the toolbox's [documentation](https://zokrates.github.io/) for more information about using ZoKrates.  
 
-If you run into problems, ZoKrates has a Gitter room. You can come ask for help on [Gitter](https://gitter.im/ZoKrates/Lobby).
+## Use Case 1.
 
-## License
+Here's the scenario (2 parties): 
 
-ZoKrates is released under the GNU Lesser General Public License v3.
+Current websites store the hash value of the user’s password in their web servers. In order to verify that the client actually knows the password, most websites currently use the method of hashing the password input by the client and comparing it with the stored result.
 
-## Contributing
+Zero-Knowledge Proof can protect user’ account from leakage. if Zero-Knowledge Proof can be realized, then the client password is unknown to anyone but can still authenticate the client login. When a server is attacked, the user’s account is still secure because the client’s password is not stored in the web server.
 
-We happily welcome contributions. You can either pick an existing issue, or reach out on [Gitter](https://gitter.im/ZoKrates/Lobby).
+## Use Case 2.
 
-Unless you explicitly state otherwise, any contribution you intentionally submit for inclusion in the work shall be licensed as above, without any additional terms or conditions.
+Here's the scenario (3 parties):
+
+<img src="https://hackernoon.com/hn-images/1*qlTlvErILjQL9Y7LewAPQA.png" width="100%">
+
+Reference from: [Here](https://hackernoon.com/wtf-is-zero-knowledge-proof-be5b49735f27).
+
+## File Structure
+
+`out`: after compile client_program.code or server_program.code, we'll get `out` and `out.code` (the later one is human-readable format).
+
+`witness`: compute with witness command, it generates a witness file which contains two outputs as 128 bit number. By concatenating the outputs, we can get the hash for our original value.
+
+`proving.key` & `verification.key`: run the setup phase, there're 2 key files will be generated; proving.key for prover to create a proof.json, verification.key for verifier to check if the proof is valid or not.
+
+`verifier.sol`: use zokrates export-verifier command, we can generate a solidity file includes all keys and verifyTx function.
+
+`verify.js`: run node to delpoy the contract and call verify function
